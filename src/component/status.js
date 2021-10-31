@@ -1,4 +1,4 @@
-import React, {useEffect,useState,useLayoutEffect } from 'react';
+import React, {useEffect,useState} from 'react';
 import { useSubscription } from 'mqtt-react-hooks';
 import { FEED_1_NAME,FEED_2_NAME,FEED_3_NAME,FEED_4_NAME,USERNAME,KEY,USERNAME1,KEY1,} from '../config/config';
 import {GetValue,PostValue} from './funcitons';
@@ -11,7 +11,7 @@ export default function Status() {
 
     const {message} = useSubscription([`${USERNAME1}/feeds/${FEED_1_NAME}/json`,]);    
     const [valueFeed1, setmsgFeed1] = useState('');
-    useLayoutEffect(()=>{ GetValue(USERNAME1,KEY1,FEED_1_NAME).then(function(result) {
+    useEffect(()=>{ GetValue(USERNAME1,KEY1,FEED_1_NAME).then(function(result) {
         setmsgFeed1(Number(result));})},[])
     let checkMessage = (msg) => {
         if (!msg) return;

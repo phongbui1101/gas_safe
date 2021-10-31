@@ -1,4 +1,4 @@
-import React, {useEffect,useState,useLayoutEffect } from 'react';
+import React, {useEffect,useState } from 'react';
 import { useSubscription } from 'mqtt-react-hooks';
 import { FEED_2_NAME,USERNAME1,KEY1} from '../config/config';
 import {GetValue,PostValue} from './funcitons';
@@ -10,7 +10,7 @@ import button_on from '../images/button-on.png'
 export default function Fan() {
     const {message} = useSubscription([`${USERNAME1}/feeds/${FEED_2_NAME}/json`,]);    
     const [valueFeed2, setmsgFeed2] = useState('');
-    useLayoutEffect(()=>{ GetValue(USERNAME1,KEY1,FEED_2_NAME).then(function(result) {
+    useEffect(()=>{ GetValue(USERNAME1,KEY1,FEED_2_NAME).then(function(result) {
         setmsgFeed2(Number(result));})},[])
     let checkMessage = (msg) => {
         if (!msg) return;
