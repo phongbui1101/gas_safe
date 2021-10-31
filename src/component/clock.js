@@ -19,9 +19,10 @@ export default function Clock() {
         setSeconds((new Date().getSeconds() < 10 ? "0" : "" ) + new Date().getSeconds());
     }
     useEffect(() => {
-        setInterval(()=>{
+        let clear_clock = setInterval(()=>{
             getTime()
         },1000);
+        return ()=> clearInterval(clear_clock)
     }, [])
     return (
         <div className="clock mt-3">
