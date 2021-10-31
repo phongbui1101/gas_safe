@@ -5,7 +5,7 @@ import Fan from './fan';
 export default function Home() {
     return (
         <>
-        <Clock/>
+        {/* <Clock/> */}
         <Status/>
         <Fan/>
         </>
