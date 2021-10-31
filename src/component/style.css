@@ -3,8 +3,9 @@ body {
     font-weight: 500;
 }
 .clock {
-    width: 80%;
+    width: 100%;
     margin: 10px auto;
+    padding: 15px 0 10px 0;
     border: none;
     color: #fff;
     background-image: linear-gradient( gray,black);
@@ -117,9 +118,6 @@ ul li {
     transform:translate(0,2px);
 }
 @media screen and (max-width: 768px) {
-    .clock {
-        width: 100%;  
-    }
     ul li {
         font-size: 3em;
     }
@@ -146,9 +144,6 @@ ul li {
 @media screen and (max-width: 576px) { 
     .Date {
         font-size: 20px;
-    }
-    .clock {
-        width: 100%;  
     }
     ul li {
         font-size: 4em;
