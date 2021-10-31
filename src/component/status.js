@@ -39,7 +39,7 @@ export default function Status() {
             <div>
             <div className="notify">
                 <img src={logo_safe} alt="" className="logo"/>
-            <div className="status safe" align="center">Nồng độ khí gas bình thường {valueFeed1}</div>
+            <div className="status safe" align="center">Nồng độ khí gas bình thường, giá trị {valueFeed1}</div>
             </div>
                 <div className="notify">
                 <img src={led_off} className="led" alt=""/>
@@ -51,7 +51,7 @@ export default function Status() {
             <div>
             <div className="notify">
                 <img src={logo_danger} alt="" className="logo"/>
-                <div className="status danger" align="center">Nồng độ khí gas quá cao!!! {valueFeed1}</div>
+                <div className="status danger" align="center">Nồng độ khí gas quá cao!!!, giá trị {valueFeed1}</div>
             </div>
             <div className="notify">
                 <img src={led_on} className="led" alt=""/>
