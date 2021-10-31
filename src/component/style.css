@@ -1,0 +1,175 @@
+body {
+    font-family: 'Brush Script MT';
+    font-weight: 500;
+}
+.clock {
+    width: 80%;
+    margin: 10px auto;
+    border: none;
+    color: #fff;
+    background-image: linear-gradient( gray,black);
+    border-radius: 30px 30px;
+    box-shadow: 5px 5px 5px grey;
+}
+ 
+.Date {
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 0 0 5px #00c6ff;
+}
+ 
+ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+ 
+ul li {
+    display: inline;
+    font-size: 6em;
+    text-align: center;
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    text-shadow: 0 0 5px #00c6ff;
+}
+ 
+#point {
+    position: relative;
+    -moz-animation: mymove 1s ease infinite;
+    -webkit-animation: mymove 1s ease infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@-webkit-keyframes mymove {
+    0% {opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+}
+ 
+50% {
+    opacity: 0;
+    text-shadow: none;
+}
+ 
+100% {
+    opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+}
+}
+ 
+@-moz-keyframes mymove {
+    0% {
+        opacity: 1.0;
+        text-shadow: 0 0 20px #00c6ff;
+    }
+ 
+    50% {
+        opacity: 0;
+        text-shadow: none;
+    }
+ 
+    100% {
+        opacity: 1.0;
+        text-shadow: 0 0 20px #00c6ff;
+    };
+}
+.notify{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.status{
+    display: flex;
+    font-size: 4em;
+    font-weight: bold;
+    font-style: italic;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+}
+.safe{
+    color:darkblue;
+}
+.danger{
+    color:red;
+}
+.led{
+    width: 500px;
+}
+.fan{
+    width: 250px;
+    height: 250px;
+}
+.button{
+    width: 100px;
+    height: 100px;
+    margin: 75px 50px;
+}
+.effect_button{
+    cursor:pointer;
+}
+.effect_button:active{
+    transform:translate(0,2px);
+}
+@media screen and (max-width: 768px) {
+    .clock {
+        width: 100%;  
+    }
+    ul li {
+        font-size: 3em;
+    }
+    .status{
+        font-size: 3em;
+    }
+    .logo-safe{
+        width: 160px;
+        height: 160px;
+    }
+    .led{
+        width: 600px;
+    }
+    .fan{
+        width: 220px;
+        height: 220px;
+    }
+    .button{
+        width: 80px;
+        height: 80px;
+        margin: 70px 40px;
+    }
+}
+@media screen and (max-width: 576px) { 
+    .Date {
+        font-size: 20px;
+    }
+    .clock {
+        width: 100%;  
+    }
+    ul li {
+        font-size: 4em;
+    }
+    .status{
+        font-size: 1.75em;
+    }
+    .logo-safe{
+        width: 130px;
+        height: 130px;
+    }
+    .led{
+        width: 400px;
+    }
+    .fan{
+        width: 170px;
+        height: 170px;
+    }
+    .button{
+        width: 60px;
+        height: 60px;
+        margin: 60px 20px;
+    }
+}
