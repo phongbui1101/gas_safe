@@ -1,5 +1,5 @@
 import axios from 'axios';
-export let GetValue = (userName,key,feedName) => {
+export let GetValue = (userName, key, feedName) => {
     return axios({
         url: `https://io.adafruit.com/api/v2/${userName}/feeds/${feedName}/data?limit=1`,
         method: 'get',
@@ -7,24 +7,27 @@ export let GetValue = (userName,key,feedName) => {
             "X-AIO-Key": `${key}`,
             "Content-Type": 'application/json',
         },
-    }).then(res=>res.data[0].value);
+    }).then(res => res.data[0].value);
 }
 
-export let PostValue = async (userName,key,feedName,value) =>{
+export let PostValue = async (userName, key, feedName, value) => {
     await axios({
         url: `https://io.adafruit.com/api/v2/${userName}/feeds/${feedName}/data`,
         method: 'POST',
-        data:{value},
+        data: { value },
         headers: {
             "X-AIO-Key": `${key}`,
             "Content-Type": 'application/json',
-        }})
+        }
+    })
 }
-export let Value_control =(id,name,value) => {
+export let Value_control = (id, name, value) => {
     return JSON.stringify(
-        {"id":id,
-        "name":name,
-        "data":value,
-        "unit":""}
-        )
+        {
+            "id": id,
+            "name": name,
+            "data": value,
+            "unit": ""
+        }
+    )
 }

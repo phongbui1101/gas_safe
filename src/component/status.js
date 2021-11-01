@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSubscription } from 'mqtt-react-hooks';
-import { FEED_1_NAME,FEED_2_NAME,FEED_3_NAME, FEED_4_NAME, USERNAME, KEY, USERNAME1, KEY1, } from '../config/config';
-import { GetValue, PostValue,Value_control } from './funcitons';
+import { FEED_1_NAME, FEED_2_NAME, FEED_3_NAME, FEED_4_NAME, USERNAME, KEY, USERNAME1, KEY1, } from '../config/config';
+import { GetValue, PostValue, Value_control } from './funcitons';
 import logo_safe from '../images/safe.gif'
 import logo_danger from '../images/danger.gif'
 import led_off from '../images/led-off.png'
@@ -15,27 +15,27 @@ export default function Status() {
             result = JSON.parse(result)["data"];
             setmsgFeed1(Number(result));
             if (result === '0') {
-                PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1","LED","0"));
-                PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2","SPEAKER","0"));
+                PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1", "LED", "0"));
+                PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2", "SPEAKER", "0"));
             } else {
-                PostValue(USERNAME1, KEY1, FEED_2_NAME,Value_control("11","RELAY","1"));
-                PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1","LED","1"));
-                PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2","SPEAKER","1000"));
+                PostValue(USERNAME1, KEY1, FEED_2_NAME, Value_control("11", "RELAY", "1"));
+                PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1", "LED", "1"));
+                PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2", "SPEAKER", "1000"));
             }
         })
     }, [])
     let checkMessage = (msg) => {
         if (!msg) return;
-        let value=(JSON.parse(JSON.parse(msg.message).last_value)["data"]);
+        let value = (JSON.parse(JSON.parse(msg.message).last_value)["data"]);
         setmsgFeed1(Number(value));
         if (value === '0') {
-            PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1","LED","0"));
-            PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2","SPEAKER","0"));
+            PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1", "LED", "0"));
+            PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2", "SPEAKER", "0"));
         }
         else {
-            PostValue(USERNAME1, KEY1, FEED_2_NAME,Value_control("11","RELAY","1"));
-            PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1","LED","1"));
-            PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2","SPEAKER","1000"));
+            PostValue(USERNAME1, KEY1, FEED_2_NAME, Value_control("11", "RELAY", "1"));
+            PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1", "LED", "1"));
+            PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2", "SPEAKER", "1000"));
         }
     }
     useEffect(() => {
