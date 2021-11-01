@@ -14,9 +14,17 @@ export let PostValue = async (userName,key,feedName,value) =>{
     await axios({
         url: `https://io.adafruit.com/api/v2/${userName}/feeds/${feedName}/data`,
         method: 'POST',
-        data: {value},
+        data:{value},
         headers: {
             "X-AIO-Key": `${key}`,
             "Content-Type": 'application/json',
         }})
+}
+export let Value_control =(id,name,value) => {
+    return JSON.stringify(
+        {"id":id,
+        "name":name,
+        "data":value,
+        "unit":""}
+        )
 }
