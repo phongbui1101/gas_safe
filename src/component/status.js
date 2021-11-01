@@ -12,19 +12,25 @@ export default function Status() {
     const {message} = useSubscription([`${USERNAME1}/feeds/${FEED_1_NAME}/json`,]);    
     const [valueFeed1, setmsgFeed1] = useState('');
     useEffect(()=>{ GetValue(USERNAME1,KEY1,FEED_1_NAME).then(function(result) {
-        setmsgFeed1(Number(result));})},[])
+        setmsgFeed1(Number(result));
+        if (result==0){
+            PostValue(USERNAME,KEY,FEED_3_NAME,0);
+            PostValue(USERNAME,KEY,FEED_4_NAME,0);
+        } else {
+            PostValue(USERNAME,KEY,FEED_3_NAME,1);
+            PostValue(USERNAME,KEY,FEED_4_NAME,1000);
+        }
+    })},[])
     let checkMessage = (msg) => {
         if (!msg) return;
         sessionStorage.check_sensor=1;
         let value = +JSON.parse(message.message)?.data.value;
         setmsgFeed1(value);
         if (value===0){
-            PostValue(USERNAME,KEY,FEED_2_NAME,0);
             PostValue(USERNAME,KEY,FEED_3_NAME,0);
             PostValue(USERNAME,KEY,FEED_4_NAME,0);
         }
         else{
-            PostValue(USERNAME,KEY,FEED_2_NAME,1);
             PostValue(USERNAME,KEY,FEED_3_NAME,1);
             PostValue(USERNAME,KEY,FEED_4_NAME,1000);
         }
