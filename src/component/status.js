@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react';
 import { useSubscription } from 'mqtt-react-hooks';
-import { FEED_1_NAME,FEED_2_NAME,FEED_3_NAME,FEED_4_NAME,USERNAME,KEY,USERNAME1,KEY1,} from '../config/config';
+import { FEED_1_NAME,FEED_3_NAME,FEED_4_NAME,USERNAME,KEY,USERNAME1,KEY1,} from '../config/config';
 import {GetValue,PostValue} from './funcitons';
 import logo_safe from '../images/safe.gif'
 import logo_danger from '../images/danger.gif'
@@ -13,7 +13,7 @@ export default function Status() {
     const [valueFeed1, setmsgFeed1] = useState('');
     useEffect(()=>{ GetValue(USERNAME1,KEY1,FEED_1_NAME).then(function(result) {
         setmsgFeed1(Number(result));
-        if (result==0){
+        if (result==='0'){
             PostValue(USERNAME,KEY,FEED_3_NAME,0);
             PostValue(USERNAME,KEY,FEED_4_NAME,0);
         } else {
