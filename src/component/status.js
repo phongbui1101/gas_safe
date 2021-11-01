@@ -15,6 +15,7 @@ export default function Status() {
             result = JSON.parse(result)["data"];
             setmsgFeed1(Number(result));
             if (result === '0') {
+                PostValue(USERNAME1, KEY1, FEED_2_NAME, Value_control("11", "RELAY", "0"));
                 PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1", "LED", "0"));
                 PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2", "SPEAKER", "0"));
             } else {
@@ -29,8 +30,9 @@ export default function Status() {
         let value = (JSON.parse(JSON.parse(msg.message).last_value)["data"]);
         setmsgFeed1(Number(value));
         if (value === '0') {
-            PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1", "LED", "0"));
-            PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2", "SPEAKER", "0"));
+                PostValue(USERNAME1, KEY1, FEED_2_NAME, Value_control("11", "RELAY", "0"));
+                PostValue(USERNAME, KEY, FEED_3_NAME, Value_control("1", "LED", "0"));
+                PostValue(USERNAME, KEY, FEED_4_NAME, Value_control("2", "SPEAKER", "0"));
         }
         else {
             PostValue(USERNAME1, KEY1, FEED_2_NAME, Value_control("11", "RELAY", "1"));
