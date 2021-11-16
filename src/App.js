@@ -10,7 +10,13 @@ function App() {
           username: USERNAME1,
           password: KEY1,
       }}>
+      <Menu-bar/>{/* Tien Thanh */}
+      <Login/> {/* Bao Minh */}
       <Home/>
+      <Phone/> {/* Ngoc Minh */}
+      <Profile/>{/* Trung Anh */}
+      <History/>{/* Thanh Phong */}
+      <User-manual/>{/* Thanh Phong */}
     </Connector>
     </>
   )
